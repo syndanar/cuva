@@ -1,9 +1,10 @@
 export interface Post {
+  id: number,
   title: string,
   body: string,
 }
 
 export interface PostsState {
-  posts: Array<Post>,
+  data: Array<Post>,
   error: boolean
 }

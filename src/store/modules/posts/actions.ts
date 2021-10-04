@@ -14,6 +14,18 @@ const actions: ActionTree<PostsState, RootState> = {
       commit('postsError');
     });
   },
+  fetchPost({ commit, state }, id: number): void {
+    if (!state.data.find((post) => post.id === id)) {
+      axios({
+        url: `https://jsonplaceholder.typicode.com/posts/${id}`,
+      }).then((response) => {
+        const payload: Post = response && response.data;
+        commit('postLoaded', payload);
+      }, () => {
+        commit('postError');
+      });
+    }
+  },
 };
 
 export default actions;

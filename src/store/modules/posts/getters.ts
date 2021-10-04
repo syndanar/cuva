@@ -3,7 +3,8 @@ import { PostsState } from './types';
 import { RootState } from '@/store/types';
 
 const getters: GetterTree<PostsState, RootState> = {
-  posts: (state: PostsState) => state.posts,
+  getPosts: (state: PostsState) => state.data,
+  getPost: (state: PostsState) => (id: number) => state.data.find((post) => post.id === id),
 };
 
 export default getters;

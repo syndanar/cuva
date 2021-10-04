@@ -6,7 +6,7 @@ import { PostsState } from '@/store/modules/posts/types';
 import { RootState } from '@/store/types';
 
 const state: PostsState = {
-  posts: [],
+  data: [],
   error: false,
 };
 
